@@ -3,13 +3,9 @@ kind: Kustomization
 # 네임스페이스 설정
 namespace: prod-template
 namePrefix: prod-
-labels:
-- pairs:
-    app.kubernetes.io/fe-name: prod-fe
-  includeSelectors: true
-- pairs:
-    app.kubernetes.io/be-name: prod-be
-  includeSelectors: true
+resources:
+- ../../base
+- namespace.yaml
 patches:
 - target:
     kind: Ingress
@@ -19,8 +15,6 @@ patches:
     kind: Ingress
     name: be-ingress
   path: domain.json
-resources:
-- ../../base
 images:
 - name: registry.scg.skku.ac.kr/cs-grad-thesis-fe
   newTag: prod1

@@ -5,6 +5,7 @@ namespace: dev-template
 namePrefix: dev-
 resources:
 - ../../base
+- namespace.yaml
 labels:
 patches:
 - target:
