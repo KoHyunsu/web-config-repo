@@ -8,10 +8,5 @@
         "op": "replace", 
         "path": "/spec/tls/0/hosts/0", 
         "value": "dev.template.scg.skku.ac.kr"
-    },
-    { 
-        "op": "replace", 
-        "path": "/spec/tls/0/secretName", 
-        "value": "dev-gitops-tls"
     }
 ]

@@ -1,13 +1,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+# 네임스페이스 설정
+namespace: dev-template
 namePrefix: dev-
+resources:
+- ../../base
 labels:
-- pairs:
-    app.kubernetes.io/fe-name: dev-fe
-  includeSelectors: true
-- pairs:
-    app.kubernetes.io/be-name: dev-be
-  includeSelectors: true
 patches:
 - target:
     kind: Ingress
@@ -17,8 +15,6 @@ patches:
     kind: Ingress
     name: be-ingress
   path: domain.json
-resources:
-- ../../base
 images:
 - name: registry.scg.skku.ac.kr/cs-grad-thesis-fe
   newTag: dev1
