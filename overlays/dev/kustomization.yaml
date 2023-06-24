@@ -1,0 +1,28 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namePrefix: dev-
+labels:
+- pairs:
+    app.kubernetes.io/fe-name: dev-fe
+  includeSelectors: true
+- pairs:
+    app.kubernetes.io/be-name: dev-be
+  includeSelectors: true
+patchesStrategicMerge:
+- ingress.yaml
+patches:
+- target:
+    kind: Ingress
+    name: fe-ingress
+  path: domain.json
+- target:
+    kind: Ingress
+    name: be-ingress
+  path: domain.json
+resources:
+- ../../base
+images:
+- name: registry.scg.skku.ac.kr/cs-grad-thesis-fe
+  newTag: dev1
+- name: registry.scg.skku.ac.kr/cs-grad-thesis-be
+  newTag: dev0
