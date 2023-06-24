@@ -8,8 +8,6 @@ labels:
 - pairs:
     app.kubernetes.io/be-name: dev-be
   includeSelectors: true
-patchesStrategicMerge:
-- ingress.yaml
 patches:
 - target:
     kind: Ingress
