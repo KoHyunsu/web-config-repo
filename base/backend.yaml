@@ -48,11 +48,9 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        # 도메인 설정
         - blabla.scg.skku.ac.kr
       secretName: gitops-tls
   rules:
-    # 도메인 설정
     - host: blabla.scg.skku.ac.kr
       http:
         paths:
