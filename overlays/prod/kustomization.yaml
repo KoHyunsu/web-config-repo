@@ -8,6 +8,14 @@ resources:
 - namespace.yaml
 patches:
 - target:
+    kind: Deployment
+    name: fe-deployment
+  path: env.json
+- target:
+    kind: Deployment
+    name: be-deployment
+  path: env.json
+- target:
     kind: Ingress
     name: fe-ingress
   path: domain.json

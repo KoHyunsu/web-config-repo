@@ -20,6 +20,9 @@ spec:
           ports:
             # 컨테이너 포트 설정
             - containerPort: 8000
+          envFrom:
+           - configMapRef:
+               name: configmap
 ---
 apiVersion: v1
 kind: Service
